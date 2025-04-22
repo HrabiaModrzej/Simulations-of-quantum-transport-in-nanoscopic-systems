@@ -1,0 +1,119 @@
+\documentclass[12pt,a4]{article}
+\input{setupTEX.tex}
+
+
+\title{\textsc{Calculating electronic states in 2 dimentional parabolic potential}}
+\author{Michał Modrzejewski}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Introduction}
+
+The goal of laboratory class is to calculate the eigenstates and eigenenergies of single electron in two dimentional quantum dot, which is desribed by the parabolic potential
+\[\hat{\mathcal{H}} = -\frac{1}{2m*}\left(\pdv[2]{x} + \pdv[2]{y}\right) + \frac{m*}{2} (\omega_x^2 x^2 + \omega_y^2y^2)\]
+The generalized hamiltonian eigenproblem is analized using the Gallerkin methon with gaussian functions basis set.
+
+\section*{Results}
+\subsection*{Task 1}
+
+In order to properly make use of the Gallerkin method one must be sure, that used basis set is defined correctly. Chosen basis functions are plotted on a figure below:
+
+\begin{figure}[H]
+	\begin{subfigure}{0.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/basis_0.pdf}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/basis_8.pdf}
+	\end{subfigure}
+	\begin{subfigure}{0.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/basis_9.pdf}
+	\end{subfigure}
+	\caption{Chosen basis set functions.}
+\end{figure}
+
+\subsection*{Task 2}
+
+In order to adress the problem of solving the generalized eigenproblem for analized system a class \texttt{GeneralizedSelfAdjointEigenSolver} from \texttt{C++} library \texttt{Eigen3} was used.
+
+\subsection*{Task 3}
+
+For analized system the squered modulus of the eigenstates wavefunction for 6 lowest energy states were plotted. Said plots are presented on the figure below:
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/state_0.pdf}
+		\caption{ground state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+	\includegraphics[width=\textwidth]{../plots/state_1.pdf}
+	\caption{1st excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+	\includegraphics[width=\textwidth]{../plots/state_2.pdf}
+	\caption{2nd excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+	\includegraphics[width=\textwidth]{../plots/state_3.pdf}
+	\caption{3rd excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+	\includegraphics[width=\textwidth]{../plots/state_4.pdf}
+	\caption{4th excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+	\includegraphics[width=\textwidth]{../plots/state_5.pdf}
+	\caption{5th excited state}
+	\end{subfigure}
+	\caption{Probability densities of eigenstates composed from calculated coefficients for 2D harmonic oscilator.}
+\end{figure}
+
+\subsection*{Task 4}
+
+The evolution of eigenenergies for 10 lowest energy states as a function of $ \hbar\omega_x \in [0,500] $ meV is shown on a figure below:
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/E_omega.pdf}
+	\caption{10 lowest eigenenergies as a function of $ \hbar\omega_x $ compared with analitical solutions.}
+\end{figure}
+
+For higher energies some inaccuracies are visible. Those differences come from small numerical errors, which in accordance to Wilkinson lemat grow and propagate for higher energies. However the calculated groundstate matches perfectly the theoretical value.
+
+\subsection*{Task 5}
+
+The value of $ \hbar\omega_y $ was chosen so that the lowest five states are only excited in the $ x $ direction. Said value was set to $ \hbar\omega_y = 360 $ meV. The plotted probability desities for 5 lowest states can be seen below: 
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/y_state_0.pdf}
+		\caption{ground state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/y_state_1.pdf}
+		\caption{1st excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/y_state_2.pdf}
+		\caption{2nd excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/y_state_3.pdf}
+		\caption{3rd excited state}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/y_state_4.pdf}
+		\caption{4th excited state}
+	\end{subfigure}
+	\caption{Probability densities of eigenstates composed from calculated coefficients for 2D harmonic oscilator where $ \hbar\omega_x=80 $ meV and $ \hbar\omega_y =360$ meV.}
+\end{figure}
+
+Achieved results are similiar to those aquired experimentaly. Here we can also observe multiple gaussian-like probability density dystibutions, where number of maximums is bigger for higher excited states.
+
+
+\section*{Summary}
+
+The problem of single electron in two dimentional parabolic potential has been solved using the Gallerkin method with gaussian base function set. The generalized eigen problem has been solved using the algorythms already implemented in \texttt{Eigen3} library. 
+
+\end{document}

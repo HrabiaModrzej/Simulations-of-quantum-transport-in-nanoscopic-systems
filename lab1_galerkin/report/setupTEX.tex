@@ -1,0 +1,137 @@
+%\usepackage{polski}
+\usepackage{fontawesome}
+\usepackage[utf8]{inputenc}
+%\usepackage{tikz}
+\usepackage[table]{xcolor}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{dsfont}
+\usepackage{parskip}
+\usepackage{tcolorbox}
+
+\usepackage{geometry}
+
+\newgeometry{tmargin=2cm, bmargin=1.5cm, lmargin=2cm, rmargin=2cm}
+
+\usepackage{sectsty}
+\definecolor{ColorOne}{RGB}{53, 78, 140}
+\definecolor{AGHgreen}{RGB}{0, 105, 60}
+\definecolor{AGHblack}{RGB}{30, 30, 30}
+\definecolor{AGHred}{RGB}{167, 25, 48}
+\sectionfont{\color{AGHgreen}} 
+\subsectionfont{\color{AGHgreen}} 
+\subsubsectionfont{\color{AGHgreen}} 
+\hypersetup{
+	colorlinks=true,
+	linkcolor=AGHgreen,
+	filecolor=AGHgreen,
+	urlcolor=AGHgreen,
+	citecolor=AGHgreen,
+}
+
+
+%##########################################################################################
+%               MOJE KOMENDY
+%##########################################################################################
+
+\newcommand{\ods}{\hspace{6mm}}
+\newcommand{\noaka}{\noindent}
+\newcommand{\aka}{\hspace{6mm}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\krecha}{\rule{\textwidth}{0.25mm}}
+\newcommand{\pol}{\frac{1}{2}}
+
+
+\newcommand{\stopni}{$^\circ$}
+
+\renewcommand{\arraystretch}{1.2}
+
+%\renewcommand{\toprule}{\hline}
+%\renewcommand{\bottomrule}{\hline}
+%\renewcommand{\midrule}{\hline}
+
+
+\graphicspath{{./galeria/}}
+
+
+
+\newcommand{\machine}[1]{\textcolor{ColorOne}{\texttt{#1}}}
+
+% draw a frame around given text
+\newcommand{\framedtext}[1]{%
+\par%
+\noindent\fcolorbox{black}{gray!7}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+    \centering
+    \parbox{\dimexpr\linewidth-3mm}{
+    \vspace{1mm}
+    #1
+    \vspace{1mm}
+    }
+    }%
+}%
+}
+
+\newcommand{\imptext}[1]{%
+\par%
+\noindent\fcolorbox{black}{AGHgreen!7}{%
+    \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{
+    \centering
+    \parbox{\dimexpr\linewidth-3mm}{
+    \vspace{1mm}
+    #1
+    \vspace{1mm}
+    }
+    }%
+}%
+}
+
+\newcommand{\boxtext}[1]{%
+	\begin{tcolorbox}[colback=gray!15,%gray background
+		colframe=gray!15,% black frame colour
+		width=\textwidth,% Use 5cm total width,
+		arc=3mm, auto outer arc,
+		]
+		#1
+	\end{tcolorbox}
+}
+
+\newcommand{\ety}[1]{_{\text{#1}}}
+\newcommand{\upety}[1]{^{\text{#1}}}
+
+\newcommand{\wektor}[1]{\left[\begin{array}{c}#1\end{array}\right]}
+
+\newcommand{\der}{\mathrm{d}}
+
+%–––––––––––––––––––––––––––––––––––––––––––––––––––––––
+\newcommand{\multiline}[1]{\begin{tabular}{c}
+		#1
+\end{tabular}}
+%–––––––––––––––––––––––––––––––––––––––––––––––––––––––
+\newcommand{\doublepage}[2]{
+	\noindent
+	\begin{minipage}{.49\textwidth}
+		#1
+	\end{minipage}
+	\begin{minipage}{.01\textwidth}
+		\hfill
+	\end{minipage}
+	\begin{minipage}{.49\textwidth}
+		#2
+	\end{minipage}
+	\vspace{1mm}
+}
+%–––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
