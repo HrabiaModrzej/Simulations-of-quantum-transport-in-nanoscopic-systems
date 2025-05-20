@@ -1,0 +1,131 @@
+\documentclass[12pt,a4]{article}
+\input{setupTEX.tex}
+
+
+\title{\textsc{Introduction to spintronics - spin transistor}}
+\author{Michał Modrzejewski}
+\date{\today}
+
+\begin{document}
+	
+\maketitle
+
+\section*{Introduction}
+
+One of characteristic properties of particles described in formalism of quantum mechanics is spin. Spin is important when we consider a behaviour of a particle in magnetic field. Manipulation of spin allow to build devices which in principle use a spin as a information carrier. This laboratory serves as a introduction to spintronic devices such as spin transistor.
+
+\section*{Spin precession in magnetic field}
+
+The first analysed system is a simple nano-wire with two contacts. Firstly a dispersion relation $E(k)$ without external magnetic field was calculated and can be seen below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task1_disperion.pdf}
+	\caption{Dispersion relation without external magnetic field.}
+\end{figure}
+
+Now that it's been confirmed, that a system is defined properly, a direction dependence of Zeeman splitting can be analysed. Below are presented dispersion relations for a nanowire with magnetic field defined for three spacial directions.
+
+\begin{figure}[H]
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task1_disperion_x.pdf}
+		\caption{$\mathbf{B} = [1,0,0]$ T}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task1_disperion_y.pdf}
+		\caption{$\mathbf{B} = [0,1,0]$ T}
+	\end{subfigure}
+	\begin{subfigure}{.33\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task1_disperion_z.pdf}
+		\caption{$\mathbf{B} = [0,0,1]$ T}
+	\end{subfigure}
+	\caption{Dispersion relations for magnetic field applied in the directions $x,y$ or $z$.}
+\end{figure}
+
+As one can see the Zeeman splitting seems to be direction independent.
+
+For a magnetic field defined as $\mathbf{B} = [0, 0, 1] $ T a conductance as a function of incident electron energy was calculated. Result are presented below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task1_conductance.pdf}
+	\caption{Conductance of a nanowire as a function of energy.}
+\end{figure}
+
+On a conductance function plot we can see a characteristic step-like behaviour on discreet quantized conductance values.
+
+As a next step a spatially variant magnetic field was applied. Said magnetic field is defined so that for a whole nanowire applied magnetic field is $\mathbf{B} = [0,0,0.1]$ T. Additionally a $B_y$ component is added for region $x/L\in[0.2, 0.8]$, so effectively the magnetic field in this region is defined as $\mathbf{B} = [ 0, B_y , 0.1]$. For $B_y \in  [0,1]$ T spin dependent transmission coefficients were calculated. The results are presented in a figure below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task1_transmissions_spin_dep.pdf}
+	\caption{Spin dependent transmission coefficients as a $B_y$ function.}
+\end{figure}
+
+The transmission character changes periodically from conserved spin transition to spin flip transition. 
+
+To further inspect the spin flip transition in a nanowire a spin dependent charge density in system was calculated. Since calculated transmission coefficient $T_{\text{up}\leftarrow\text{up}}$ for $B_y = 0.6$ T is about 0.92, that would mean we expect a transport with either no spin flip or spin flipping occurring so that the spin at both leads is the same. A calculated charge distribution can be seen below:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task1_charge_density.pdf}
+	\caption{Spin dependent electron density in the nanowire.}
+\end{figure}
+
+The plot implies that during the transport spin "rotates" two times.
+
+For the same system spin ($s_x,s_y,s_z$) density distribution was calculated and plotted on the picture below:
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task1_spin_density.pdf}
+	\caption{Spin distributions in the nanowire.}
+\end{figure}
+
+\section*{Spin transistor}
+
+Including a spin-orbit interaction into calculations changes the outcomes and broadens the possibilities of effects to analyse. On a picture below a calculated dispersion relation with spin-orbit coupling inclusion is presented.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task2_disperion.pdf}
+	\caption{Dispersion relation in the nanowire with SOC ($\alpha=50$ meVnm).}
+\end{figure}
+
+Including the spin-orbit coupling in calculations changes the shape of the dispersion relation. The bands are now horizontally split. 
+
+The changes of conductance as a function of incident electron energy can also be analysed. The calculation results pictured on a figure can be seen below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task2_conductance.pdf}
+	\caption{Conductance as a function of electron energy with SOC considered.}
+\end{figure}
+
+Once again step-like behaviour can be observed, although now the steps take up two units of quantized conductance.
+
+The spin dependent transmission coefficients were calculated as a function of $\alpha$ under assumption that the spin-orbit interaction is only present in the region $x/L\in[0.2, 0.8]$. The plotted results are visualized below.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{../plots/task2_transmissions_spin_dep.pdf}
+	\caption{Spin dependent transmission coefficients as a function of $\alpha$.}
+\end{figure}
+
+Analogically the spin dependent conductance can be calculated as a function of $\alpha$, the results are presented in a form of a plot below.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{../plots/task2_conds_spin_dep.pdf}
+	\caption{Spin dependent conductance as a function of $\alpha$ for $P\in{0.1, 0.4, 1.0}$.}
+\end{figure}
+
+For a full polarization the total current is described by a single factor. For lower spin polarization of flowing current naturally lower total current is observed.
+
+
+\section*{Summary}
+
+
+
+ 
+\end{document}
