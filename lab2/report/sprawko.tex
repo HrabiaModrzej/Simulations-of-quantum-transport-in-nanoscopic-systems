@@ -1,0 +1,111 @@
+\documentclass[a4paper,12pt]{article}
+
+\input{setupTEX.tex}
+
+
+
+\author{Michał Modrzejewski}
+\date{\today}
+\title{\textsc{Resonant tunneling diode and quantum point contact}}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Introduction}
+	A main problem of laboratory is the implementation of transfer matrix method in various systems including a single potential barier, double barier and quantum point contact through adiabatic approximation.
+	
+	For chosen system a current-voltage characterisic was calculated using the Tsu-Esaki formula. For QPC results were expanded by including conductance calculations as a function of incident electron energy and gate voltage.
+	
+	\section*{Task 1}
+	The first task regards the calculations of trasnmitance and reflectance of a single barier system as a function of energy. Firstly we assume a spacialy constant effective mass $ m* = m*_{\mathrm{GaAs}} = 0.063 m_0$.
+	
+	As a generalization of calculations the spacial effective mass variance was added. Plots of transmition and reflection coefficients as functions of energy are presented below:
+	
+	\begin{figure}[H]
+		\begin{subfigure}{.5\textwidth}
+			\includegraphics[width=\textwidth]{./../T_R_E_1.pdf}
+			\caption{}
+		\end{subfigure}
+		\begin{subfigure}{.5\textwidth}
+			\includegraphics[width=\textwidth]{./../T_R_E_2.pdf}
+			\caption{}
+		\end{subfigure}
+		\caption{Transmitance and reflectance for a system with (a) constant effective mass, (b) effective mass depending on material.}
+	\end{figure}
+
+	Changing the effective mass dependency effectively amlifies second maximum of reflectance. The first minimum is also shifted, which means the lower energy is necessery for electron to pass through the barier.
+	
+	\section*{Task 2}
+	
+	Second task is analogous to the first one but we change the system by adding second barrier.
+	Transmitance and reflectance plots are presented below:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.5\textwidth]{./../T_R_E_3.pdf}
+		\caption{Transmitance and reflectance calculated for a system with double potential barrier.}
+	\end{figure}
+
+	Results show a characteristic spike of transmitance for a electron energy below the energy of barrier itself. Such phenomenon is bind to the resonant states, where electron energy is equal to the energy of the quantum well bound state. Such resonance allows for a high transmitance for a very specific energy.
+	
+	For the same double barrier system the Tsu-Esaki formula was used to calculate current-voltage characteristic. The voltage is modeled by adding bias linear potential decreas. Distribution of potential in space is shown on the figure below:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{./../bias_pot.pdf}
+		\caption{Double barrier potential with bias voltage 50 meV applied}
+	\end{figure}
+	
+	For such defined system current-voltage characteristic was calculated. The plotted result can be seen below:
+	
+	\begin{figure}[H]
+		\centering\includegraphics[width=0.5\textwidth]{./../tsu_esaki.pdf}
+		\caption{Current-voltage characteristic of a resonant-tunneling diode.}
+	\end{figure}
+
+	Expected quick rise of current and following it steep decreas can be observed on plotted characteristic. Such behaviour is typical to double barrier systems.
+	
+	\section*{Task 3}
+	
+	In the third task we analize a quantum point contact (QPC). A spacial potential distribution for a QPC can be seen on a following figure:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\textwidth]{./../QPCpot.pdf}
+		\caption{Potential in QPC.}
+	\end{figure}
+
+	With the usage of adiabatic approximation an effective potential in $ x $ -axis diraction can be calculated. The first 5 eigenenergies and their spacial dependency  are plotted on the figure below:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{./../eff_pot.pdf}
+		\caption{Effective potential felt by an electron flowing through QPC.}
+	\end{figure}
+
+	The dependecy of conductance on energy was calculated using the Landauer formula. The results can be seen below:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{./../wykres.pdf}
+		\caption{The QPC conductance as a function of electron energy.}
+	\end{figure}
+
+	A characteristic pattern fo step-like changes of conductance resulting from quantisation can be observed.
+	
+	As the last task conductance as a function of gate voltage was calculated for two incident electron energies 50 meV and 100 meV. The results are presented on a plot below:
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\textwidth]{./../cond_vs_V.pdf}
+		\caption{The QPC conductance as a function of the gate voltage.}
+	\end{figure}
+
+	From results we can see that conductance is quantised also in gate voltage dependency. With growing gate voltage conductance decreases and for higher energies of electrons the decreas rate is lower.
+	
+	\section*{Summary}
+	
+	In this laboratory exercise the transfer matrix method was implemented for various systems. The current-voltage characteristic was calculated using the Tsu-Esaki formula. For QPC the conductance for a set system was calculated using the Landauer formula, which allowed to observe conductance quantisation in QPC.
+	
+	
+\end{document}
