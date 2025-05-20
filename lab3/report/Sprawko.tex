@@ -1,0 +1,127 @@
+\documentclass[12pt,a4]{article}
+\input{setupTEX.tex}
+
+
+\title{\textsc{Electron transport simulations in magnetic field}}
+\author{Michał Modrzejewski}
+\date{\today}
+
+\begin{document}
+	
+\maketitle
+
+\section*{Introduction}
+
+The laboratory serves as an introduction to the \texttt{KWANT} package, which is a useful tool built for calculations of transport properties in quantum systems. The package is mostly used as
+a \texttt{Python} library, so the exercise was done using \texttt{Python} language. 
+
+The laboratory focuses on examples of quantum transport in systems with magnetic field included.
+
+\section*{Task 1}
+
+As the first task we consider a nanowire with inclusion of scattering potential in system. The potential has a Gaussian form. The built system is presented on the figure below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task1_system.pdf}
+	\caption{Quantum wire with Gaussian scattering potential.}
+\end{figure}
+
+For the defined system a conductance as a function of incident electron energy. The calculated dependence was plotted and can be seen below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task1_condutance.pdf}
+	\caption{Conductance of a nanowire with scattering potential as a function of incident electron energy.}
+\end{figure}
+
+In the conductance function we observe a rounded step-like behaviour, where lack of clearly defined steps is caused by a scattering potential.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task1_wavefunctions_currents.pdf}
+	\caption{Plotted probability densities (top row) and current densities (bottom row) of a electron in built system.}
+\end{figure}
+
+\section*{Task 2}
+
+In second task the nanowire with no scattering potential was considered, however this time we include electron interaction with magnetic field by introducing Peierls phase. The magnetic field is defined using an asymmetric Landau gauge:
+\[\mathbf{A} = [-yB_z \;\; 0 \;\; 0]\upety{T}\]
+for which the Peierls phase can be derived from expression:
+\[P = \exp(i\frac{e}{\hbar} \int_{\mathbf{r}_n}^{\mathbf{r}_m}\mathbf{A}(\mathbf{r'})\dd\mathbf{r'})\]
+and can be applied to hopping terms:
+\[t_{nm} \to t_{nm}\exp(-\frac{i}{2}B_z(x_m - x_n)(y_m+y_n))\]
+
+The dispersion relations for two different widths of nanowire were calculated and can be seen below.
+
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task2_disp_rel_B2T_W40.pdf}
+		\caption{$2W= 80$ nm}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task2_disp_rel_B2T_W100.pdf}
+		\caption{$2W= 200$ nm}
+	\end{subfigure}
+	\caption{Calculated dispersion relations.}
+\end{figure}
+
+In a wider system we can observe a influence of quantum Hall effect on the transport properties of nanowire. For low length wavevectors we observe no group velocity since the energy doesn't change with $ \mathbf{k} $, so $\dd E / \dd k = 0$. In such a system the charge transport is bound to the edge states.
+
+The conductance as a function of electron energy  was calculated and plotted. The results are presented in a figure below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task2_condutance.pdf}
+	\caption{Calculated conductance function for $ B_z $ = 2 T.}
+\end{figure}
+
+The probability densities of electron in a system for the lowest state with energy slightly above the first step in conductance function for two possible input electron directions are plotted below.
+
+\begin{figure}[H]
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task2_wavefunction_left.pdf}
+		\caption{electron input from left}
+	\end{subfigure}
+	\begin{subfigure}{.5\textwidth}
+		\includegraphics[width=\textwidth]{../plots/task2_wavefunction_right.pdf}
+		\caption{electron input from right}
+	\end{subfigure}
+	\caption{Probability density for electron input into nanowire from both sides. $ B_z = 2 $ T, $ 2W = 100 $ nm, $ E\ety{incident} = 0.015 $ eV.}
+\end{figure}
+
+\section*{Task 3}
+
+The third task focuses on a more complex system than a nanowire, namely a Y-shape junction. The system is pictured in figure below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task3_system.pdf}
+	\caption{Y-shape junction taken into consideration: inner ring $ R_1 $ = 60 nm, outer ring $ R_2 $ = 120 nm.}
+\end{figure}
+
+Dispersion relation calculated for the defined system can be seen below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task3_dispersion_relation.pdf}
+	\caption{Dispersion relation in the left channel at $ B=0 $.}
+\end{figure}
+
+The conductance with the incident electron energy within the third sub-band ($ E=0.1 $ eV) for both the upper and lower lead was calculated as a function of magnetic field $ B_z $. The calculated relation is visualised as a plot in a figure below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task3_conductances.pdf}
+	\caption{Conductance as a function of magnetic field.}
+\end{figure}
+
+By changing the magnetic field one may control the flow of the current in a Y-shape junction. With a high enough $ B_z $ the current flows through only one (upper or bottom) lead of the junction.
+
+The effect can be better visualised by plotting the current density in the system with changing magnetic field. Such a visualisation is presented below.
+
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../plots/task3_current.pdf}
+	\caption{Current density maps for different values of $ B_z $.}
+\end{figure}
+
+At $ B_z = 3 $ T the current flows entirely through the bottom part of the junction. We can see the charge bouncing off the edge of the system which reassures us that the electron follows the Lorentz force action via quantum Hall effect.
+
+\section*{Summary}
+
+For calculations of electron transport properties in nanowire and Y-shape junction the \texttt{KWANT} package was used. It server as a great tool, which simplifies the calculations in quantum systems. Analysed systems aren't trivial so the simplification of numerical methodology is helpful.
+ 
+\end{document}
