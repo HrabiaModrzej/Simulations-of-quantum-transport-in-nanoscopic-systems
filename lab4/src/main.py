@@ -61,7 +61,7 @@ def Task1_2():
     # B = [0 0 1]
     sp  = SP.SpinPrecessor(Bz=u.T2au(1))
     momenta, energies = SP.disperssion(sp, 0, .1, 500)
-    plt.figure(figsize=(8,4))
+    plt.figure(figsize=(6,4))
     plt.plot(momenta, np.asarray(energies)/u.eV2au(1.0),'k-')
     plt.tick_params(axis='both', which='major', labelsize=15)
     plt.ylim((0,.2))  
@@ -156,7 +156,8 @@ def Task2_1():
 
 def Task2_2():
     alpha = u.nm2au(u.eV2au(18e-3))
-    sp  = SP.SpinPrecessor(L=u.nm2au(800), W=u.nm2au(100), alpha=alpha)
+    sp  = SP.SpinPrecessor(alpha=alpha)
+    #sp  = SP.SpinPrecessor(L=u.nm2au(800), W=u.nm2au(100), alpha=alpha)
     energies, conductances = SP.conductance(sp, 0.05, 100)
     plt.figure(figsize=(8,4))
     plt.plot(energies, conductances,'k-')
